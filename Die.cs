@@ -29,4 +29,21 @@ public class Die
     /// Gets the number of sides for the die
     /// </summary>
     public byte NumberOfSides { get; private set; }
+
+    /// <summary>
+    /// Current face value for the die
+    /// </summary>
+    public byte DieFaceValue { get; private set; }
+
+    /// <summary>
+    /// Simulates rolling the die and returns what number the die landed on
+    /// </summary>
+    /// <returns>A byte representative of the value the die landed on</returns>
+    public byte Roll()
+    {
+        Random rand = new();
+        DieFaceValue = Convert.ToByte(rand.Next(1, NumberOfSides + 1));
+
+        return DieFaceValue;
+    }
 }
