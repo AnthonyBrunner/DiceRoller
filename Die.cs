@@ -11,8 +11,10 @@ namespace DiceRoller;
 /// <summary>
 /// This represents a configurable die used in games or simulations
 /// </summary>
+
 public class Die
 {
+    /// <exception cref="ArgumentOutOfRangeException"> Thrown when invalid number of sides is provided</exception>
     public Die(byte numSides)
     {
         if (numSides == 0 || numSides > 20)
