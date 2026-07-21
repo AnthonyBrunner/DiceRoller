@@ -14,10 +14,20 @@ namespace DiceRoller;
 
 public class Die
 {
+    private static readonly Random rand = new();
+
+    /// <summary>
+    /// Configurable variable for setting the upper limit for die sides
+    /// </summary>
+    private int DieSideLimit = 20;
+
+    /// <summary>
+    /// This is the constructor
+    /// </summary>
     /// <exception cref="ArgumentOutOfRangeException"> Thrown when invalid number of sides is provided</exception>
     public Die(byte numSides)
     {
-        if (numSides == 0 || numSides > 20)
+        if (numSides == 0 || numSides > DieSideLimit)
         {
             throw new ArgumentOutOfRangeException(nameof(numSides), 
                 $"{nameof(numSides)} must be greater than 0 and less than 21");
@@ -41,7 +51,6 @@ public class Die
     /// <returns>A byte representative of the value the die landed on</returns>
     public byte Roll()
     {
-        Random rand = new();
         DieFaceValue = Convert.ToByte(rand.Next(1, NumberOfSides + 1));
 
         return DieFaceValue;
