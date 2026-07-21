@@ -17,9 +17,9 @@ public class Die
     private static readonly Random rand = new();
 
     /// <summary>
-    /// Configurable variable for setting the upper limit for die sides
+    /// Configurable variable for setting the upper limit for die sides. P.S: I did this at the beggining to eliminate a magic number
     /// </summary>
-    private int DieSideLimit = 20;
+    private const byte DIE_SIDE_LIMIT = 20;
 
     /// <summary>
     /// This is the constructor
@@ -27,7 +27,7 @@ public class Die
     /// <exception cref="ArgumentOutOfRangeException"> Thrown when invalid number of sides is provided</exception>
     public Die(byte numSides)
     {
-        if (numSides == 0 || numSides > DieSideLimit)
+        if (numSides == 0 || numSides > DIE_SIDE_LIMIT)
         {
             throw new ArgumentOutOfRangeException(nameof(numSides), 
                 $"{nameof(numSides)} must be greater than 0 and less than 21");
