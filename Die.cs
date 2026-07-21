@@ -39,9 +39,9 @@ public class Die
     }
 
     /// <summary>
-    /// Gets the number of sides for the die
+    /// Gets the number of sides for the die. `init` allows value to be set only during initialization versus private set
     /// </summary>
-    public byte NumberOfSides { get; private set; }
+    public byte NumberOfSides { get; init; }
 
     /// <summary>
     /// Current face value for the die
